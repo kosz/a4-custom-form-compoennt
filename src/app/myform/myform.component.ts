@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { 
-  FormControl,
+  FormBuilder,
   FormGroup,
+  Validators,
 } from '@angular/forms';
 
 @Component({
@@ -11,11 +12,17 @@ import {
 })
 export class MyformComponent implements OnInit {
 
-  myForm = new FormGroup ({
-    name: new FormControl()
-  });
+  myForm: FormGroup;
 
-  constructor() { }
+  createForm() {
+    this.myForm = this.fb.group({
+      name: ['', Validators.required ]
+    });
+  }
+
+  constructor(private fb: FormBuilder) {
+    this.createForm();
+  }
 
   ngOnInit() {
 
