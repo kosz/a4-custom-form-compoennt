@@ -9,6 +9,8 @@ import { FormControl } from '@angular/forms';
 export class MyinputComponent implements OnInit {
 
   @Input() formControl: FormControl;
+  @Input() errorInfo: any;
+  @Input() lblTxt: string;
   constructor() { }
 
   ngOnInit() {

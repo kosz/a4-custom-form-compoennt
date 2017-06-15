@@ -2,7 +2,16 @@
   myform works!
   <form [formGroup]="myForm" novalidate>
   <div class="form-group">
-    <app-myinput [formControl]="myForm.controls.name" ngDefaultControl></app-myinput>
+    <app-myinput 
+      lblTxt="Naam"
+      [errorInfo]="errorMap.name" 
+      [formControl]="myForm.controls.name" 
+      ngDefaultControl></app-myinput>
+    <app-myinput 
+      lblTxt="Naam 2"
+      [errorInfo]="errorMap.newName" 
+      [formControl]="myForm.controls.newName" 
+      ngDefaultControl></app-myinput>
   </div>
   </form>
 
