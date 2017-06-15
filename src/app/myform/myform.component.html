@@ -1,0 +1,11 @@
+<div>
+  myform works!
+  <form [formGroup]="myForm" novalidate>
+  <div class="form-group">
+    <app-myinput [formControl]="myForm.controls.name" ngDefaultControl></app-myinput>
+  </div>
+  </form>
+
+  <p>Form value: {{ myForm.value | json }}</p>
+  <p>Form status: {{ myForm.status | json }}</p>
+</div>
