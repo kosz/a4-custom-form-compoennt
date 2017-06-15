@@ -7,10 +7,14 @@ import { AppComponent } from './app.component';
 import { MyformComponent } from './myform/myform.component';
 import { MyinputComponent } from './myinput/myinput.component';
 
+import { KeysPipe } from './myinput/keys.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     MyformComponent,
+    KeysPipe,
     MyinputComponent
   ],
   imports: [

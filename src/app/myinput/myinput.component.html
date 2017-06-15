@@ -1,3 +1,9 @@
 <label class="center-block">Name:
   <input class="form-control" [formControl]="formControl">
 </label>
+
+{{ formControl.errors }}
+
+<p *ngFor="let validationError of formControl.errors | keys">
+  {{ validationError }}
+</p>
