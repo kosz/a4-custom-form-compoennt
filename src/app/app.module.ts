@@ -13,6 +13,7 @@ import { registerReducer } from './register/register.reducer';
 
 import { MyinputModule } from './myinput/myinput.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { OutputScreenModule } from './output-screen/output-screen.module';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     BrowserModule,
     RegisterModule,
     HttpModule,
+    OutputScreenModule,
     //MyinputModule,
     StoreModule.provideStore({ register: registerReducer }),
     StoreDevtoolsModule.instrumentOnlyWithExtension({
