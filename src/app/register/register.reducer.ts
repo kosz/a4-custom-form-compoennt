@@ -1,20 +1,21 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+export const REGISTER_SAVE = 'REGISTER_SAVE';
 
-export function registerReducer(state: number = 0, action: Action) {
+const INITIAL_STATE: ReducerStateShape = {
+  registerFormData: {}
+}
+
+interface ReducerStateShape {
+  registerFormData: any;
+}
+
+export function registerReducer(state: ReducerStateShape = INITIAL_STATE, action: Action) {
 	switch (action.type) {
-		case INCREMENT:
-			return state + 1;
-
-		case DECREMENT:
-			return state - 1;
-
-		case RESET:
-			return 0;
-
+		case REGISTER_SAVE:
+			return { ...state,
+        registerFormData: action.payload
+      };
 		default:
 			return state;
 	}

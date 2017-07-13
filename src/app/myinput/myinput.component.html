@@ -2,11 +2,10 @@
   <input class="form-control" [formControl]="formControl">
 </label>
 
-{{ formControl.errors }}
-
 <div *ngFor="let validationError of formControl.errors | keys">
-  <div style="color: red;" >
+  <div class="app-input-error">
     {{ errorInfo[validationError] }}
   </div>
-  
 </div>
+
+<br/>

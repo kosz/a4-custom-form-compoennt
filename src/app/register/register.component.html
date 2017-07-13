@@ -1,3 +1,16 @@
 <p (click)="clickThing()">
   register works! {{ counter | async }}
 </p>
+<form [formGroup]="registerForm" novalidate>
+  <app-myinput 
+    lblTxt="User Name"
+    [errorInfo]="errorMap.username" 
+    [formControl]="registerForm.controls.username" 
+    ngDefaultControl></app-myinput>
+  <app-myinput 
+    lblTxt="Email"
+    [errorInfo]="errorMap.email" 
+    [formControl]="registerForm.controls.email" 
+    ngDefaultControl></app-myinput>
+  <button (click)="saveForm()">Submit</button>
+</form>

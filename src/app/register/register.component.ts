@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { 
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -8,24 +13,43 @@ import { Store } from '@ngrx/store';
 })
 export class RegisterComponent implements OnInit {
 
+  registerForm: FormGroup;
+  errorMap = errorMap;
+
+  private createForm() {
+    this.registerForm = this.fb.group({
+      username: ['', [ Validators.required ] ],
+      email: ['', [ Validators.required ] ],
+    });
+  }
+
   constructor(
     private store: Store<any>,
-  ) {}
+    private fb: FormBuilder
+  ) {
+    this.createForm();
+  }
 
-  counter;
+  registerState;
 
   ngOnInit() {
-    this.store.dispatch({
-      type: 'INCREMENT'
-    });
-
-    this.counter = this.store.select('register');
+    this.registerState = this.store.select('register');
   }
 
-  clickThing() {
+  saveForm() {
     this.store.dispatch({
-      type: 'INCREMENT'
+      type: 'REGISTER_SAVE',
+      payload: this.registerForm.value
     });
   }
 
+}
+
+const errorMap = {
+  username: {
+    required: 'Enter a user name plz'
+  },
+  email: {
+    required: 'Please enter email'
+  }
 }
