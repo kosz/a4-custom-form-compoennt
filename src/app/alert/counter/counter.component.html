@@ -1,0 +1,20 @@
+<div>
+  counter works!
+  <br>
+  <br>
+  {{ ( counterSlice | async ).nr }}
+  <br>
+  <button (click)="increment()">+</button>
+  <button (click)="decrement()">-</button>
+  <br>
+  <button (click)="loadData()">load data</button>
+  <div *ngIf="(backendSlice | async).loading">
+<i>I'm a loader bar</i>
+  </div>
+  <div *ngIf="!( backendSlice | async ).error">
+  Server Data :{{ ( backendSlice | async ).serverData?.hello }}
+  </div>
+  <div *ngIf="(backendSlice | async).error">
+<i>An error has happened, please try again</i>
+  </div>
+</div>
